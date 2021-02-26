@@ -48,6 +48,16 @@ target_compile_definitions(argp-standalone PRIVATE HAVE_CONFIG_H)
 target_include_directories(
   argp-standalone
   PRIVATE
-  "${PROJECT_BINARY_DIR}"
+    "${PROJECT_BINARY_DIR}"
   PUBLIC
-  ../include/argp-standalone)
+    ../include/argp-standalone
+  )
+
+install(
+  TARGETS argp-standalone 
+  LIBRARY DESTINATION lib
+  )
+install(
+  FILES ${CMAKE_CURRENT_SOURCE_DIR}/../include/argp-standalone/argp.h
+  DESTINATION include
+  )
